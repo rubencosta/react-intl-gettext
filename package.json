@@ -1,0 +1,53 @@
+{
+  "name": "react-intl-gettext",
+  "version": "1.0.0",
+  "description": "utilities to integrate react-intl with gettext ",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha -c -u bdd --compilers js:babel-register",
+    "build": "babel src -d dist --presets es2015,stage-0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/rubencosta/react-intl-gettext"
+  },
+  "keywords": [
+    "react-intl",
+    "gettext",
+    "po",
+    "pot",
+    "json"
+  ],
+  "author": "Ruben Costa",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "eslint": "^2.12.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "expect": "^1.20.1",
+    "mocha": "^2.5.3"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "environment": "node",
+    "rules": {
+      "semi": [
+        2,
+        "never"
+      ],
+      "no-extra-semi": 2
+    }
+  }
+}
