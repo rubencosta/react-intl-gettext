@@ -9,18 +9,17 @@ export default (messagesPattern = '**/*.json', { cwd = '' }) => globSync(message
     })
   )
   .reduce(
-    (mappedMessages, { filename, messages }) => {
-      return [
-        ...mappedMessages,
-        ...messages
-          .map(
-            ({ id, defaultMessage, description }) => ({
-              reference: filename,
-              extracted: description,
-              ctx: id,
-              msgid: defaultMessage,
-            })
-          ),
-      ]
-    }, []
+    (mappedMessages, { filename, messages }) => ([
+      ...mappedMessages,
+      ...messages
+        .map(
+          ({ id, defaultMessage, description }) => ({
+            reference: filename,
+            extracted: description,
+            ctx: id,
+            msgid: defaultMessage,
+          })
+        ),
+    ]),
+    [],
   )

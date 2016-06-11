@@ -7,6 +7,7 @@
     "pretest": "babel src_test -o /dev/null",
     "test": "mocha -c -u bdd --compilers js:babel-register",
     "test:watch": "watch-run -i -p src/**/*,test/**/*,!test/fixtures/messages/**/* npm run test",
+    "lint": "eslint .",
     "build": "babel src -d dist --presets es2015,stage-0"
   },
   "repository": {
