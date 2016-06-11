@@ -1,7 +1,7 @@
 {
   "plugins": [
     ["react-intl", {
-      "messagesDir": "./messages/"
+      "messagesDir": "test/fixtures/messages/"
     }]
   ]
 }
