@@ -16,8 +16,8 @@ export default (messagesPattern = '**/*.json', { cwd = '' }) => globSync(message
           ({ id, defaultMessage, description }) => ({
             reference: filename,
             extracted: description,
-            ctx: id,
-            msgid: defaultMessage,
+            ctx: defaultMessage,
+            msgid: id,
           })
         ),
     ]),

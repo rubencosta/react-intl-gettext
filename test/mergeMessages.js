@@ -7,40 +7,40 @@ describe('map messages', () => {
   let result
   const mergedMessages = [
     {
-      ctx: 'a.a',
+      ctx: 'the a message',
       reference: 'src_test/moduleA.json',
       extracted: 'a message of the a module',
-      msgid: 'the a message',
+      msgid: 'a.a',
     },
     {
-      ctx: 'a.b',
+      ctx: 'the b message',
       reference: 'src_test/moduleA.json',
       extracted: 'b message of the a module',
-      msgid: 'the b message',
+      msgid: 'a.b',
     },
     {
-      ctx: 'a.c',
+      ctx: 'the a message',
       reference: 'src_test/moduleA.json',
       extracted: 'c message of the a module',
-      msgid: 'the a message',
+      msgid: 'a.c',
     },
     {
-      ctx: 'b.a',
+      ctx: 'the a message',
       reference: 'src_test/moduleB.json',
       extracted: 'a message of the b module',
-      msgid: 'the a message',
+      msgid: 'b.a',
     },
     {
-      ctx: 'b.b',
+      ctx: 'the b message',
       reference: 'src_test/moduleB.json',
       extracted: 'b message of the b module',
-      msgid: 'the b message',
+      msgid: 'b.b',
     },
     {
-      ctx: 'b.c',
+      ctx: 'the a message',
       reference: 'src_test/moduleB.json',
       extracted: 'c message of the b module',
-      msgid: 'the a message',
+      msgid: 'b.c',
     },
   ]
   beforeEach(() => {
