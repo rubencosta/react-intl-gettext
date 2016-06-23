@@ -3,41 +3,41 @@
 import expect from 'expect'
 import mergeMessages from '../src/json2po/jsonMessageReader'
 
-describe('map messages', () => {
+describe('json message reader', () => {
   let result
   const mergedMessages = [
     {
-      ctx: 'the a message',
+      msgstr: 'the a message',
       reference: 'src_test/moduleA.json',
       extracted: 'a message of the a module',
       msgid: 'a.a',
     },
     {
-      ctx: 'the b message',
+      msgstr: 'the b message',
       reference: 'src_test/moduleA.json',
       extracted: 'b message of the a module',
       msgid: 'a.b',
     },
     {
-      ctx: 'the a message',
+      msgstr: 'the a message',
       reference: 'src_test/moduleA.json',
       extracted: 'c message of the a module',
       msgid: 'a.c',
     },
     {
-      ctx: 'the a message',
+      msgstr: 'the a message',
       reference: 'src_test/moduleB.json',
       extracted: 'a message of the b module',
       msgid: 'b.a',
     },
     {
-      ctx: 'the b message',
+      msgstr: 'the b message',
       reference: 'src_test/moduleB.json',
       extracted: 'b message of the b module',
       msgid: 'b.b',
     },
     {
-      ctx: 'the a message',
+      msgstr: 'the a message',
       reference: 'src_test/moduleB.json',
       extracted: 'c message of the b module',
       msgid: 'b.c',

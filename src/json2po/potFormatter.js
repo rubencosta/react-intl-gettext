@@ -1,6 +1,6 @@
 export default (messages, copyDefaultTranslation) => messages.map(
-  ({ reference, extracted, ctx, msgid }) =>
-    `#. ${extracted}\n#: ${reference}\nmsgctxt "${ctx}"\nmsgid "${msgid}"\nmsgstr "${
-      copyDefaultTranslation ? ctx : ''
+  ({ reference, extracted, msgid, msgstr }) =>
+    `#. ${extracted}\n#: ${reference}\nmsgid "${msgid}"\nmsgstr "${
+      copyDefaultTranslation ? msgstr : ''
       }"\n`
 ).join('\n')

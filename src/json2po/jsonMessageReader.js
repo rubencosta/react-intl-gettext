@@ -18,7 +18,7 @@ export default ({
     ...messages.map(({ id, defaultMessage, description } = {}) => ({
       reference: filename,
       extracted: description,
-      ctx: defaultMessage,
+      msgstr: defaultMessage,
       msgid: id,
     })),
   ]), [])
