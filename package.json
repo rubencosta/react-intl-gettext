@@ -1,19 +1,31 @@
 {
   "name": "react-intl-gettext",
   "version": "1.0.0",
-  "description": "utilities to integrate react-intl with gettext ",
+  "description": "utilities to integrate react-intl with gettext",
   "main": "dist/index.js",
   "scripts": {
     "pretest": "babel src_test -o /dev/null",
     "test": "mocha -c -u bdd --compilers js:babel-register",
     "test:watch": "watch-run -i -p src/**/*,test/**/*,!test/fixtures/messages/**/* npm run test",
+    "clean": "rimraf dist/**",
     "lint": "eslint .",
-    "build": "babel src -d dist --presets es2015,stage-0"
+    "prebuild": "npm run clean && npm run lint",
+    "build": "babel src -d dist --presets es2015,stage-0",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "github.com/rubencosta/react-intl-gettext"
   },
+  "bin": {
+    "rig": "dist/cli.js",
+    "react-intl-gettext": "dist/cli.js"
+  },
+  "files": [
+    "lib",
+    "src",
+    "test"
+  ],
   "keywords": [
     "react-intl",
     "gettext",
@@ -36,6 +48,7 @@
     "expect": "^1.20.1",
     "mocha": "^2.5.3",
     "react-intl": "^2.1.2",
+    "rimraf": "^2.5.2",
     "watch-run": "^1.2.4"
   },
   "babel": {
