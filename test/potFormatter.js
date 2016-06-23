@@ -2,8 +2,8 @@
 
 import { readFileSync } from 'fs'
 import expect from 'expect'
-import mergeMessages from '../src/mergeMessages'
-import potFormatter from '../src/potFormatter'
+import mergeMessages from '../src/json2po/jsonMessageReader'
+import potFormatter from '../src/json2po/potFormatter'
 
 describe('message formatter', () => {
   let result
@@ -12,7 +12,8 @@ describe('message formatter', () => {
     beforeEach(() => {
       formattedString = readFileSync('./test/fixtures/pot/extracted.pot', 'utf-8')
       result = potFormatter(
-        mergeMessages('**/*.json', {
+        mergeMessages({
+          messagesPattern: '**/*.json',
           cwd: 'test/fixtures/messages',
         }))
     })
@@ -24,7 +25,8 @@ describe('message formatter', () => {
     beforeEach(() => {
       formattedString = readFileSync('./test/fixtures/pot/extractedWithDefault.po', 'utf-8')
       result = potFormatter(
-        mergeMessages('**/*.json', {
+        mergeMessages({
+          messagesPattern: '**/*.json',
           cwd: 'test/fixtures/messages',
         }), true)
     })

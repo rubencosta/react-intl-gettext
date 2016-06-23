@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 
 import expect from 'expect'
-import mergeMessages from '../src/mergeMessages'
+import mergeMessages from '../src/json2po/jsonMessageReader'
 
 describe('map messages', () => {
   let result
@@ -44,7 +44,8 @@ describe('map messages', () => {
     },
   ]
   beforeEach(() => {
-    result = mergeMessages('**/*.json', {
+    result = mergeMessages({
+      messagesPattern: '**/*.json',
       cwd: 'test/fixtures/messages',
     })
   })
