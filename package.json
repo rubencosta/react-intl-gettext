@@ -21,7 +21,7 @@
     "react-intl-gettext": "dist/cli.js"
   },
   "files": [
-    "lib",
+    "dist",
     "src",
     "test"
   ],
