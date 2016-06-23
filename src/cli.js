@@ -7,7 +7,8 @@ import messageReader from './json2po/jsonMessageReader'
 import poMessageReader from './po2json/poMessageReader'
 
 program
-  .command('json2pot <src> <dest>', 'converts react-intl extracted json to po/pot')
+  .command('json2pot <src> <dest>')
+  .description('converts react-intl extracted json to po/pot')
   .option('-p, --pattern', 'glob pattern used to find the src files')
   .option('-d, --use-default', 'use defaultMessage as msgstr')
   .action((src, dest, { pattern, useDefault }) => {
@@ -16,10 +17,11 @@ program
       potFormatter(messageReader({ cwd: src, messagesPattern: pattern }), useDefault),
     )
   })
-  .command('po2json <src> <dest>', 'converts po files to json')
-  .option('-p, --pattern', 'glob pattern used to find the src files')
+
+program.command('po2json <src> <dest> [pattern]')
+  .description('converts po files to json')
   .option('--pretty', 'preety print json')
-  .action((src, dest, { pattern, pretty }) => {
+  .action((src, dest, pattern, { pretty }) => {
     writeFileSync(
       dest,
       JSON.stringify(poMessageReader({
