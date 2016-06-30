@@ -14,6 +14,6 @@ defineMessages({
   c: {
     id: 'b.c',
     description: 'c message of the b module',
-    defaultMessage: 'the a message',
+    defaultMessage: 'the c message',
   },
 })

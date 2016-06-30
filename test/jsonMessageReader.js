@@ -37,7 +37,7 @@ describe('json message reader', () => {
       msgid: 'b.b',
     },
     {
-      msgstr: 'the a message',
+      msgstr: 'the c message',
       reference: 'src_test/moduleB.json',
       extracted: 'c message of the b module',
       msgid: 'b.c',
