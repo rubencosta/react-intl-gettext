@@ -1,35 +1,35 @@
 #. a message of the a module
 #: src_test/moduleA.json
-msgctxt "the a message"
-msgid "a.a"
+msgctxt "a.a"
+msgid "the a message"
 msgstr ""
 
 #. b message of the a module
 #: src_test/moduleA.json
-msgctxt "the b message"
-msgid "a.b"
+msgctxt "a.b"
+msgid "the b message"
 msgstr ""
 
 #. c message of the a module
 #: src_test/moduleA.json
-msgctxt "the a message"
-msgid "a.c"
+msgctxt "a.c"
+msgid "the a message"
 msgstr ""
 
 #. a message of the b module
 #: src_test/moduleB.json
-msgctxt "the a message"
-msgid "b.a"
+msgctxt "b.a"
+msgid "the a message"
 msgstr ""
 
 #. b message of the b module
 #: src_test/moduleB.json
-msgctxt "the b message"
-msgid "b.b"
+msgctxt "b.b"
+msgid "the b message"
 msgstr ""
 
 #. c message of the b module
 #: src_test/moduleB.json
-msgctxt "the c message"
-msgid "b.c"
+msgctxt "b.c"
+msgid "the c message"
 msgstr ""
