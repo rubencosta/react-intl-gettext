@@ -1,6 +1,6 @@
 {
   "name": "react-intl-gettext",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "utilities to integrate react-intl with gettext",
   "main": "dist/index.js",
   "scripts": {

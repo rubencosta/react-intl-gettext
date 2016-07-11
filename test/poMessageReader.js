@@ -12,7 +12,7 @@ describe('po message reader', () => {
       'a.c': 'the a message',
       'b.a': 'the a message',
       'b.b': 'the b message',
-      'b.c': 'the a message',
+      'b.c': 'the c message',
     },
     pt_PT: {
       'a.a': 'the a message',
@@ -20,7 +20,7 @@ describe('po message reader', () => {
       'a.c': 'the a message',
       'b.a': 'the a message',
       'b.b': 'the b message',
-      'b.c': 'the a message',
+      'b.c': 'the c message',
     },
   }
   beforeEach(() => {

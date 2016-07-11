@@ -13,15 +13,10 @@ export default ({
   const translations = globSync(messagesPattern, { cwd })
     .map(filename => {
       const { translations: contexts } = po.parse(readFileSync(join(cwd, filename)), 'utf-8')
-      const mergedContexts = Object.keys(contexts)
-        .reduce((acc, nextContext) => ({
-          ...acc,
-          ...contexts[nextContext],
-        }), {})
-      const mergedTranslations = Object.keys(mergedContexts)
+      const mergedTranslations = Object.keys(contexts)
         .reduce((acc, id) => ({
           ...acc,
-          [id]: mergedContexts[id].msgstr[0],
+          [id]: Object.keys(contexts[id]).shift(),
         }), {})
       return {
         [langMatcher(filename)]: mergedTranslations,
