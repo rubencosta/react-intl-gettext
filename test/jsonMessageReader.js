@@ -7,40 +7,40 @@ describe('json message reader', () => {
   let result
   const mergedMessages = [
     {
-      msgstr: 'the a message',
+      msgid: 'the a message',
       reference: 'src_test/moduleA.json',
       extracted: 'a message of the a module',
-      msgid: 'a.a',
+      msgstr: 'a.a',
     },
     {
-      msgstr: 'the b message',
+      msgid: 'the b message',
       reference: 'src_test/moduleA.json',
       extracted: 'b message of the a module',
-      msgid: 'a.b',
+      msgstr: 'a.b',
     },
     {
-      msgstr: 'the a message',
+      msgid: 'the a message',
       reference: 'src_test/moduleA.json',
       extracted: 'c message of the a module',
-      msgid: 'a.c',
+      msgstr: 'a.c',
     },
     {
-      msgstr: 'the a message',
+      msgid: 'the a message',
       reference: 'src_test/moduleB.json',
       extracted: 'a message of the b module',
-      msgid: 'b.a',
+      msgstr: 'b.a',
     },
     {
-      msgstr: 'the b message',
+      msgid: 'the b message',
       reference: 'src_test/moduleB.json',
       extracted: 'b message of the b module',
-      msgid: 'b.b',
+      msgstr: 'b.b',
     },
     {
-      msgstr: 'the c message',
+      msgid: 'the c message',
       reference: 'src_test/moduleB.json',
       extracted: 'c message of the b module',
-      msgid: 'b.c',
+      msgstr: 'b.c',
     },
   ]
   beforeEach(() => {
