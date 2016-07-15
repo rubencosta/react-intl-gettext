@@ -3,7 +3,7 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 import { po } from 'gettext-parser'
 
-const defaultNameMatcher = (filename) => filename.match(/.*[-_\.](.*[-_].*)\.po$/)[1]
+const defaultNameMatcher = (filename) => filename.match(/.*[-](.*)\.po$/)[1]
 
 export default ({
   messagesPattern = '**/*.po',

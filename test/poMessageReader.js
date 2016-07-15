@@ -6,7 +6,7 @@ import poMessageReader from '../src/po2json/poMessageReader'
 describe('po message reader', () => {
   let result
   const expected = {
-    'en-US': {
+    en: {
       'a.a': 'the a message',
       'a.b': 'the b message',
       'a.c': 'the a message',
@@ -14,7 +14,7 @@ describe('po message reader', () => {
       'b.b': 'the b message',
       'b.c': 'the c message',
     },
-    pt_PT: {
+    pt: {
       'a.a': 'a mensagem a',
       'a.b': 'a mensagem b',
       'a.c': 'a mensagem a',
