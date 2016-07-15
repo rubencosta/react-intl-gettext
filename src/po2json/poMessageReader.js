@@ -17,7 +17,7 @@ export default ({
         .reduce((acc, id) => ({
           ...acc,
           [id]: Object.keys(contexts[id]).reduce((msgstr, nextContextObject, _, array) => {
-            if (array.length > 1) {
+            if (id !== '' && array.length > 1) {
               throw new Error(`More than one message was found for the context ${id}`)
             }
             if (contexts[id][nextContextObject].msgstr.length > 1) {
