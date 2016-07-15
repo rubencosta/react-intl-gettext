@@ -2,34 +2,37 @@
 #: src_test/moduleA.json
 msgctxt "a.a"
 msgid "the a message"
-msgstr "a mensagem a"
+msgid_plural "the a messages"
+msgstr[0] "the a messages"
+msgstr[1] "the a message"
+msgstr[2] "the a messages"
 
 #. b message of the a module
 #: src_test/moduleA.json
 msgctxt "a.b"
 msgid "the b message"
-msgstr "a mensagem b"
+msgstr "the b message"
 
 #. c message of the a module
 #: src_test/moduleA.json
 msgctxt "a.c"
 msgid "the a message"
-msgstr "a mensagem a"
+msgstr "the a message"
 
 #. a message of the b module
 #: src_test/moduleB.json
 msgctxt "b.a"
 msgid "the a message"
-msgstr "a mensagem a"
+msgstr "the a message"
 
 #. b message of the b module
 #: src_test/moduleB.json
 msgctxt "b.b"
 msgid "the b message"
-msgstr "a mensagem b"
+msgstr "the b message"
 
 #. c message of the b module
 #: src_test/moduleB.json
 msgctxt "b.c"
 msgid "the c message"
-msgstr "a mensagem c"
+msgstr "the c message"

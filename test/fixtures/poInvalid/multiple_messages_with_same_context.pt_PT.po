@@ -4,6 +4,12 @@ msgctxt "a.a"
 msgid "the a message"
 msgstr "a mensagem a"
 
+#. a message of the a module
+#: src_test/moduleA.json
+msgctxt "a.a"
+msgid "the second msg in this context"
+msgstr "a segunda mensagem para este contexto"
+
 #. b message of the a module
 #: src_test/moduleA.json
 msgctxt "a.b"

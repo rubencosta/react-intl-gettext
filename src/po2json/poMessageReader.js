@@ -16,7 +16,18 @@ export default ({
       const mergedTranslations = Object.keys(contexts)
         .reduce((acc, id) => ({
           ...acc,
-          [id]: Object.keys(contexts[id]).shift(),
+          [id]: Object.keys(contexts[id]).reduce((msgstr, nextContextObject, _, array) => {
+            if (array.length > 1) {
+              throw new Error(`More than one message was found for the context ${id}`)
+            }
+            if (contexts[id][nextContextObject].msgstr.length > 1) {
+              /* eslint-disable no-console */
+              console.warn(`Plural definitions were found for the context ${id}. 
+              Plurals are ignored!`)
+              /* eslint-enable no-console */
+            }
+            return contexts[id][nextContextObject].msgstr[0]
+          }, ''),
         }), {})
       return {
         [langMatcher(filename)]: mergedTranslations,
