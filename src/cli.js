@@ -22,9 +22,14 @@ program
     )
   })
 
-program.command('po2json <src> <dest> [pattern]')
+program.command('po2json <src> <dest>')
   .description('converts po files to json')
-  .option('--pretty', 'preety print json')
+  .option(
+    '-p, --pattern [pattern]',
+    'glob pattern used to find the src files [**/*.po]',
+    '**/*.po',
+  )
+  .option('--pretty', 'pretty print json')
   .action((src, dest, pattern, { pretty }) => {
     writeFileSync(
       dest,
