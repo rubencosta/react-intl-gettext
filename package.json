@@ -71,6 +71,6 @@
   },
   "dependencies": {
     "gettext-parser": "^1.2.0",
-    "glob": "^7.0.3"
+    "glob": "^7.0.6"
   }
 }
