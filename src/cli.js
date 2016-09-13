@@ -9,7 +9,11 @@ import poMessageReader from './po2json/poMessageReader'
 program
   .command('json2pot <src> <dest>')
   .description('converts react-intl extracted json to po/pot')
-  .option('-p, --pattern', 'glob pattern used to find the src files')
+  .option(
+    '-p, --pattern [pattern]',
+    'glob pattern used to find the src files [**/*.json]',
+    '**/*.json',
+  )
   .option('-d, --use-default', 'use defaultMessage as msgstr')
   .action((src, dest, { pattern, useDefault }) => {
     writeFileSync(
