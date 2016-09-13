@@ -30,7 +30,7 @@ program.command('po2json <src> <dest>')
     '**/*.po',
   )
   .option('--pretty', 'pretty print json')
-  .action((src, dest, pattern, { pretty }) => {
+  .action((src, dest, { pattern, pretty }) => {
     writeFileSync(
       dest,
       JSON.stringify(poMessageReader({
