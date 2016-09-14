@@ -9,8 +9,9 @@ export default ({
   messagesPattern = '**/*.po',
   cwd = process.cwd(),
   langMatcher = defaultNameMatcher,
+  ignore,
 }) => {
-  const translations = globSync(messagesPattern, { cwd })
+  const translations = globSync(messagesPattern, { cwd, ignore })
     .map(filename => {
       const { translations: contexts } = po.parse(readFileSync(join(cwd, filename)), 'utf-8')
       const mergedTranslations = Object.keys(contexts)

@@ -5,9 +5,10 @@ import { sync as globSync } from 'glob'
 export default ({
   messagesPattern = '**/*.json',
   cwd = process.cwd(),
+  ignore,
 }) => {
   const ids = new Set()
-  return globSync(messagesPattern, { cwd })
+  return globSync(messagesPattern, { cwd, ignore })
     .map(filename => {
       const parsedMessages = JSON.parse(readFileSync(join(cwd, filename), 'utf-8'))
       return ({
