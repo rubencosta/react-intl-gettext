@@ -18,8 +18,7 @@ program
   )
   .option('-d, --use-default', 'use defaultMessage as msgstr')
   .option(
-    '-i',
-    '--ignore <patterns>',
+    '-i, --ignore <patterns>',
     'add a pattern or an array of glob patterns to exclude matches',
     list,
   )
@@ -39,8 +38,7 @@ program.command('po2json <src> <dest>')
   )
   .option('--pretty', 'pretty print json')
   .option(
-    '-i',
-    '--ignore <patterns>',
+    '-i, --ignore <patterns>',
     'add a pattern or an array of glob patterns to exclude matches',
     list,
   )
