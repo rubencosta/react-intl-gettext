@@ -1,0 +1,25 @@
+machine:
+  pre:
+    - mkdir ~/.yarn-cache
+  node:
+    version: 6.1.0
+
+dependencies:
+  cache_directories:
+    - "~/.yarn-cache"
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+  override:
+    - yarn
+
+test:
+  override:
+    - yarn test
+
+deployment:
+  master:
+    branch: master
+    owner: rubencosta
+    commands:
+      - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
+      - npm publish
