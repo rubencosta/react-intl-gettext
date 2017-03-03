@@ -13,6 +13,7 @@
     "build": "babel src -d dist --presets es2015,stage-0",
     "prepublish": "npm run build"
   },
+  "homepage": "https://github.com/rubencosta/react-intl-gettext#readme",
   "repository": {
     "type": "git",
     "url": "github.com/rubencosta/react-intl-gettext"
