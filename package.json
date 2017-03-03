@@ -1,6 +1,6 @@
 {
   "name": "react-intl-gettext",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "utilities to integrate react-intl with gettext",
   "main": "dist/index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "build": "babel src -d dist --presets es2015,stage-0",
     "prepublish": "npm run build"
   },
+  "homepage": "https://github.com/rubencosta/react-intl-gettext#readme",
   "repository": {
     "type": "git",
     "url": "github.com/rubencosta/react-intl-gettext"
