@@ -23,8 +23,7 @@
   },
   "files": [
     "dist",
-    "src",
-    "test"
+    "src"
   ],
   "keywords": [
     "react-intl",
