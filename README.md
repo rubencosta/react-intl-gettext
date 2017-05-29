@@ -2,6 +2,17 @@
 
 Integrate react-intl with gettext tools. This package provides a CLI tool to help converting between react-intl JSON files and gettext PO files.
 
+## Installation
+
+```sh
+$ npm install react-intl-gettext --save-dev
+```
+Of course you can use ```yarn add```.
+
+```sh
+$ yarn add react-intl-gettext --dev
+```
+
 ## Example `package.json` usage
 ```json
 scripts: {
