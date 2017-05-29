@@ -4,7 +4,14 @@ Integrate react-intl with gettext tools. This package provides a CLI tool to hel
 
 ## Installation
 
-```npm install react-intl-gettext --save-dev```
+```sh
+$ npm install react-intl-gettext --save-dev
+```
+Of course you can use ```yarn add```.
+
+```sh
+$ yarn add react-intl-gettext --dev
+```
 
 ## Example `package.json` usage
 ```json
