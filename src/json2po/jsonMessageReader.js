@@ -18,16 +18,17 @@ export default ({
     })
     .reduce((mappedMessages, { filename, messages }) => ([
       ...mappedMessages,
-      ...messages.map(({ id, defaultMessage, description } = {}) => {
+      ...messages.map(({ id, defaultMessage, description, translatedMessage } = {}) => {
         if (ids.has(id)) {
           throw new Error(`The id ${id} found in ${filename} was already defined`)
         }
         ids.add(id)
         return ({
           reference: filename,
-          extracted: description,
-          msgstr: id,
-          msgid: defaultMessage,
+          description,
+          id,
+          defaultMessage,
+          translatedMessage,
         })
       }),
     ]), [])

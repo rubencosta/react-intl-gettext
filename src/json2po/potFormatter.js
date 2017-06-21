@@ -1,10 +1,17 @@
-const buildMessage = (copyDefaultTranslation) => ({ reference, extracted, msgid, msgstr }) =>
-[`#. ${extracted}`,
-`#: ${reference}`,
-`msgctxt "${msgstr}"`,
-`msgid "${msgid}"`,
-`msgstr "${copyDefaultTranslation ? msgid : ''}"`,
-'',
+const buildMessage = copyDefaultTranslation => ({
+  reference,
+  description,
+  id,
+  defaultMessage,
+  translatedMessage,
+}) =>
+[
+  `#. ${description}`,
+  `#: ${reference}`,
+  `msgctxt "${id}"`,
+  `msgid "${defaultMessage}"`,
+  `msgstr "${copyDefaultTranslation ? translatedMessage || defaultMessage : ''}"`,
+  '',
 ].join('\n')
 
 export default (messages, copyDefaultTranslation, header = '') => {
