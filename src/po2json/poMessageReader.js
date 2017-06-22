@@ -3,7 +3,7 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 import { po } from 'gettext-parser'
 
-const defaultNameMatcher = (filename) => filename.match(/.*[-](.*)\.po$/)[1]
+const defaultNameMatcher = filename => filename.match(/.*[-](.*)\.po$/)[1]
 
 export default ({
   messagesPattern = '**/*.po',
@@ -11,31 +11,35 @@ export default ({
   langMatcher = defaultNameMatcher,
   ignore,
 }) => {
-  const translations = globSync(messagesPattern, { cwd, ignore })
-    .map(filename => {
-      const { translations: contexts } = po.parse(readFileSync(join(cwd, filename)), 'utf-8')
-      const mergedTranslations = Object.keys(contexts)
-        .reduce((acc, id) => ({
-          ...acc,
-          [id]: Object.keys(contexts[id]).reduce((msgstr, nextContextObject, _, array) => {
-            if (id !== '' && array.length > 1) {
-              throw new Error(`More than one message was found for the context ${id}`)
-            }
-            if (contexts[id][nextContextObject].msgstr.length > 1) {
-              /* eslint-disable no-console */
-              console.warn(`Plural definitions were found for the context ${id}. 
+  const translations = globSync(messagesPattern, { cwd, ignore }).map(filename => {
+    const { translations: contexts } = po.parse(readFileSync(join(cwd, filename)), 'utf-8')
+    const mergedTranslations = Object.keys(contexts).filter(id => id !== '').reduce(
+      (acc, id) => ({
+        ...acc,
+        [id]: Object.keys(contexts[id]).reduce((msgstr, nextContextObject, _, array) => {
+          if (id !== '' && array.length > 1) {
+            throw new Error(`More than one message was found for the context ${id}`)
+          }
+          if (contexts[id][nextContextObject].msgstr.length > 1) {
+            /* eslint-disable no-console */
+            console.warn(`Plural definitions were found for the context ${id}.
               Plurals are ignored!`)
-              /* eslint-enable no-console */
-            }
-            return contexts[id][nextContextObject].msgstr[0]
-          }, ''),
-        }), {})
-      return {
-        [langMatcher(filename)]: mergedTranslations,
-      }
-    })
-  return translations.reduce((acc, nextFile) => ({
-    ...acc,
-    ...nextFile,
-  }), {})
+            /* eslint-enable no-console */
+          }
+          return contexts[id][nextContextObject].msgstr[0]
+        }, ''),
+      }),
+      {}
+    )
+    return {
+      [langMatcher(filename)]: mergedTranslations,
+    }
+  })
+  return translations.reduce(
+    (acc, nextFile) => ({
+      ...acc,
+      ...nextFile,
+    }),
+    {}
+  )
 }
