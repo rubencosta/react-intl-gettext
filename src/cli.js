@@ -78,7 +78,7 @@ program
           ignore,
         }),
         null,
-        pretty ? '\t' : undefined
+        pretty ? '  ' : undefined
       )
     )
   })
