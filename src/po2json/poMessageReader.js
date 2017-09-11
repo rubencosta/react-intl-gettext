@@ -3,12 +3,16 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 import { po } from 'gettext-parser'
 
-const defaultNameMatcher = filename => filename.match(/.*[-](.*)\.po$/)[1]
+const newNameMatcher = regex => filename => filename.match(regex)[1]
+
+export const defaultNameMatcherPatternString = '.*-(.*)\\.po$'
+export const defaultPattern = '**/*.po'
 
 export default ({
-  messagesPattern = '**/*.po',
+  messagesPattern = defaultPattern,
   cwd = process.cwd(),
-  langMatcher = defaultNameMatcher,
+  langMatcherPattern = defaultNameMatcherPatternString,
+  langMatcher = newNameMatcher(langMatcherPattern),
   ignore,
 }) => {
   const translations = globSync(messagesPattern, { cwd, ignore }).map(filename => {
