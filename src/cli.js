@@ -5,7 +5,10 @@ import program from 'commander'
 import headerFormatter from './json2po/headerFormatter'
 import potFormatter from './json2po/potFormatter'
 import messageReader from './json2po/jsonMessageReader'
-import poMessageReader from './po2json/poMessageReader'
+import poMessageReader, {
+  defaultPattern,
+  defaultNameMatcherPatternString,
+} from './po2json/poMessageReader'
 import {
   getUserPackageJson,
   buildVersionFromPackageJson,
@@ -61,24 +64,34 @@ program
 program
   .command('po2json <src> <dest>')
   .description('converts po files to json')
-  .option('-p, --pattern [pattern]', 'glob pattern used to find the src files [**/*.po]', '**/*.po')
+  .option(
+    '-p, --pattern [pattern]',
+    `glob pattern used to find the src files [${defaultPattern}]`,
+    defaultPattern
+  )
   .option('--pretty', 'pretty print json')
   .option(
     '-i, --ignore <patterns>',
     'add a pattern or an array of glob patterns to exclude matches',
     list
   )
-  .action((src, dest, { pattern, pretty, ignore }) => {
+  .option(
+    '--lang-matcher-pattern [lang-matcher-pattern]',
+    `pattern used to match the language from the file name [${defaultNameMatcherPatternString}]`,
+    defaultNameMatcherPatternString
+  )
+  .action((src, dest, { pattern, pretty, ignore, langMatcherPattern }) => {
     writeFileSync(
       dest,
       JSON.stringify(
         poMessageReader({
           cwd: src,
           messagesPattern: pattern,
+          langMatcherPattern,
           ignore,
         }),
         null,
-        pretty ? '\t' : undefined
+        pretty ? '  ' : undefined
       )
     )
   })
