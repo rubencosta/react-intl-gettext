@@ -9,6 +9,16 @@ describe('message formatter', () => {
   let result
   let formattedString
   let header
+  it('should correctly escape strings', () => {
+    expect(
+      potFormatter(
+        mergeMessages({
+          messagesPattern: '**/*.json',
+          cwd: 'test/fixtures/potEscape',
+        })
+      )
+    ).toEqual(readFileSync('./test/fixtures/potEscape/escapeTest.pot', 'utf-8'))
+  })
   context('called without copyDefaultTranslation', () => {
     beforeEach(() => {
       formattedString = readFileSync('./test/fixtures/pot/extracted.pot', 'utf-8')
@@ -16,7 +26,8 @@ describe('message formatter', () => {
         mergeMessages({
           messagesPattern: '**/*.json',
           cwd: 'test/fixtures/messages',
-        }))
+        })
+      )
     })
     it('should map all messages to pot', () => {
       expect(result).toEqual(formattedString)
@@ -29,7 +40,9 @@ describe('message formatter', () => {
         mergeMessages({
           messagesPattern: '**/*.json',
           cwd: 'test/fixtures/messages',
-        }), true)
+        }),
+        true
+      )
     })
     it('should map all messages to po', () => {
       expect(result).toEqual(formattedString)
@@ -43,11 +56,13 @@ describe('message formatter', () => {
         mergeMessages({
           messagesPattern: '**/*.json',
           cwd: 'test/fixtures/messages',
-        }), false, header)
+        }),
+        false,
+        header
+      )
     })
     it('should map all messages to po', () => {
       expect(result).toEqual(formattedString)
     })
   })
 })
-

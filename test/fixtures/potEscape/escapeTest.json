@@ -1,0 +1,7 @@
+[
+  {
+    "id": "my.string.id",
+    "defaultMessage": "You should <a href=\"http://www.test.com/\" target=\"_blank\">click here</a>",
+    "description": "Amazing link"
+  }
+]

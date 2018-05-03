@@ -1,0 +1,5 @@
+#. Amazing link
+# escapeTest.json
+msgctxt "my.string.id"
+msgid "You should <a href=\"http://www.test.com/\" target=\"_blank\">click here</a>"
+msgstr ""
