@@ -1,3 +1,5 @@
+const escapeString = (str) => str.replace(/"/g, '\\"')
+
 const buildMessage = copyDefaultTranslation => ({
   reference,
   description,
@@ -8,9 +10,9 @@ const buildMessage = copyDefaultTranslation => ({
 [
   `#. ${description}`,
   `# ${reference}`,
-  `msgctxt "${id}"`,
-  `msgid "${defaultMessage}"`,
-  `msgstr "${copyDefaultTranslation ? translatedMessage || defaultMessage : ''}"`,
+  `msgctxt "${escapeString(id)}"`,
+  `msgid "${escapeString(defaultMessage)}"`,
+  `msgstr "${copyDefaultTranslation ? escapeString(translatedMessage || defaultMessage) : ''}"`,
   '',
 ].join('\n')
 
